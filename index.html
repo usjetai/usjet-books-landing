@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USJET.AI Engineering Series — 6 Technical Books by Ameer Karim</title>
+    <meta name="description" content="Practical, no-fluff technical books on building with AI. 6 books covering website building, AI-first startups, top AI tools, Mac AI setup, Cursor mastery, and deployment pipelines.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --teal-primary: #0d7d7a;
+            --teal-dark: #0a5f5c;
+            --teal-light: #1a9d99;
+            --amber-primary: #f5a623;
+            --amber-dark: #d48f0f;
+            --amber-light: #f7b947;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --medium-gray: #6c757d;
+            --dark-gray: #343a40;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--dark-gray);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--teal-primary) 0%, var(--teal-dark) 100%);
+            color: var(--white);
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero .tagline {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-weight: 500;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        .scroll-indicator {
+            display: inline-block;
+            margin-top: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Books Grid */
+        .books-section {
+            padding: 60px 0;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .books-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .book-card {
+            background: var(--white);
+            border: 2px solid var(--light-gray);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-card:hover {
+            border-color: var(--teal-primary);
+            box-shadow: 0 8px 24px rgba(13, 125, 122, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .book-cover {
+            width: 100%;
+            aspect-ratio: 2/3;
+            object-fit: cover;
+            background: var(--light-gray);
+        }
+
+        .book-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--teal-primary);
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .book-hook {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+            font-style: italic;
+        }
+
+        .book-bullets {
+            list-style: none;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .book-bullets li {
+            font-size: 0.875rem;
+            color: var(--medium-gray);
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .book-bullets li::before {
+            content: "•";
+            color: var(--amber-primary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .buy-button {
+            display: inline-block;
+            background: var(--amber-primary);
+            color: var(--white);
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .buy-button:hover {
+            background: var(--amber-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245, 166, 35, 0.4);
+        }
+
+        /* Trust Section */
+        .trust-section {
+            background: var(--light-gray);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .trust-section .author {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--teal-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .trust-section .series-note {
+            font-size: 1rem;
+            color: var(--medium-gray);
+        }
+
+        /* Closing CTA */
+        .closing-cta {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .closing-cta h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .continue-button {
+            display: inline-block;
+            background: var(--teal-primary);
+            color: var(--white);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .continue-button:hover {
+            background: var(--teal-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="container">
+            <h1>USJET.AI Engineering Series</h1>
+            <p class="tagline">Practical, no-fluff technical books on building with AI</p>
+            <div class="scroll-indicator">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <section class="books-section">
+        <div class="container">
+            <div class="books-grid">
+                <!-- Book 1 -->
+                <div class="book-card">
+                    <img src="hero_ch1.png" alt="Website Building with AI" class="book-cover">
+                    <div class="book-content">
+                        <h3 class="book-title">Website Building with AI</h3>
+                        <p class="book-hook">"What if you could build a full website without touching a line of code — and actually understand what's happening while you do it?"</p>
+                        <ul class="book-bullets">
+                            <li>Which AI tools to use, and for what</li>
+                            <li>Design-to-live-site, step by step</li>
+                            <li>Hosting & domains explained simply</li>
+                            <li>No-code + AI, used together properly</li>
+                            <li>SEO basics baked in from page one</li>
+                        </ul>
+                        <a href="https://www.amazon.com/dp/B0HD5GF54X" target="_blank" rel="noopener noreferrer" class="buy-button">Buy on Amazon</a>
+                    </div>
+                </div>
+
+                <!-- Book 2 -->
+                <div class="book-card">
+                    <img src="hero_ch2.png" alt="The AI-First Startup" class="book-cover">
+                    <div class="book-content">
+                        <h3 class="book-title">The AI-First Startup</h3>
+                        <p class="book-hook">"Everyone's racing to bolt AI onto their startup. What if you built the whole company around it instead?"</p>
+                        <ul class="book-bullets">
+                            <li>Structuring a company around AI from day one</li>
+                            <li>Where AI actually replaces early hires (and where it shouldn't)</li>
+                            <li>Lean team, AI-heavy operations</li>
+                            <li>Real frameworks, not hype</li>
+                            <li>Built for founders who want leverage, not buzzwords</li>
+                        </ul>
+                        <a href="https://www.amazon.com/dp/B0HD658R8K" target="_blank" rel="noopener noreferrer" class="buy-button">Buy on Amazon</a>
+                    </div>
+                </div>
+
+                <!-- Book 3 -->
+                <div class="book-card">
+                    <img src="hero_ch3.png" alt="Top 30 AIs and What They Can Do for You" class="book-cover">
+                    <div class="book-content">
+                        <h3 class="book-title">Top 30 AIs and What They Can Do for You</h3>
+                        <p class="book-hook">"There are hundreds of AI tools out there. Which 30 actually matter?"</p>
+                        <ul class="book-bullets">
+                            <li>30 tools, ranked by real use case</li>
+                            <li>Writing, coding, design, video, research — covered</li>
+                            <li>Free vs. paid, and whether it's worth it</li>
+                            <li>How to pick the right tool fast</li>
+                            <li>One reference instead of 40 browser tabs</li>
+                        </ul>
+                        <a href="https://www.amazon.com/dp/B0HCXQDBM3" target="_blank" rel="noopener noreferrer" class="buy-button">Buy on Amazon</a>
+                    </div>
+                </div>
+
+                <!-- Book 4 -->
+                <div class="book-card">
+                    <img src="hero_ch4.png" alt="Building an AI on Your Mac Computer" class="book-cover">
+                    <div class="book-content">
+                        <h3 class="book-title">Building an AI on Your Mac Computer</h3>
+                        <p class="book-hook">"You don't need a data center. You need the Mac that's already on your desk."</p>
+                        <ul class="book-bullets">
+                            <li>Run real AI models, completely free</li>
+                            <li>No API bills, no data leaving your machine</li>
+                            <li>Step-by-step setup, no CS degree needed</li>
+                            <li>Which models actually run well on a Mac</li>
+                            <li>The same approach behind USJET's own dashboard</li>
+                        </ul>
+                        <a href="https://www.amazon.com/dp/B0HCX896RZ" target="_blank" rel="noopener noreferrer" class="buy-button">Buy on Amazon</a>
+                    </div>
+                </div>
+
+                <!-- Book 5 -->
+                <div class="book-card">
+                    <img src="hero_ch5.png" alt="Mastering Cursor" class="book-cover">
+                    <div class="book-content">
+                        <h3 class="book-title">Mastering Cursor</h3>
+                        <p class="book-hook">"Cursor can write your code for you. Most people are only using about 10% of what it can actually do."</p>
+                        <ul class="book-bullets">
+                            <li>Every core Cursor feature, explained properly</li>
+                            <li>Prompting Cursor like an engineer, not guessing</li>
+                            <li>Real workflows, not a tips list</li>
+                            <li>Debugging faster with AI in the loop</li>
+                            <li>Shipping features in a fraction of the time</li>
+                        </ul>
+                        <a href="https://www.amazon.com/dp/B0HD53PM9W" target="_blank" rel="noopener noreferrer" class="buy-button">Buy on Amazon</a>
+                    </div>
+                </div>
+
+                <!-- Book 6 -->
+                <div class="book-card">
+                    <img src="hero_ch6.png" alt="The Deployment Pipeline" class="book-cover">
+                    <div class="book-content">
+                        <h3 class="book-title">The Deployment Pipeline</h3>
+                        <p class="book-hook">"Building the app is the easy part. Getting it live is where most people get stuck."</p>
+                        <ul class="book-bullets">
+                            <li>Idea to live product, step by step</li>
+                            <li>Real deployment tools (Vercel and friends)</li>
+                            <li>CI/CD explained simply, no jargon dump</li>
+                            <li>What breaks in production, and how to avoid it</li>
+                            <li>Going from side project to something actually shipped</li>
+                        </ul>
+                        <a href="https://www.amazon.com/dp/B0GZJZ9TGJ" target="_blank" rel="noopener noreferrer" class="buy-button">Buy on Amazon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-section">
+        <div class="container">
+            <p class="author">Ameer Karim — Founder, USJET.AI</p>
+            <p class="series-note">All 6 books are part of one connected engineering series</p>
+        </div>
+    </section>
+
+    <section class="closing-cta">
+        <div class="container">
+            <h2>Not ready to buy yet?</h2>
+            <a href="https://usjet.ai" class="continue-button">Continue to USJET.AI</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 USJET.AI. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
